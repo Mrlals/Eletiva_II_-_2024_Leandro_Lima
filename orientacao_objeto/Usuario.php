@@ -1,5 +1,7 @@
 <?php
 
+namespace orientacao_objeto;
+
     class usuario{
 
         private $nome = "joão";

@@ -8,7 +8,7 @@
         public function __construct($titulo, $autor, $ano) {
             $this->titulo = $titulo;
             $this->autor = $autor;
-            $this->ano = $ano;
+            $this->setAno($ano);
 
         }
 
@@ -31,7 +31,7 @@
         public function setAno($ano) {
             if ($ano < 1900)
                 $ano = 1900;
-            $this->ano;
+            $this->ano = $ano;
         }
 
         public function getAno() {

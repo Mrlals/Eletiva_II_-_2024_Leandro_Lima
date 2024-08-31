@@ -8,16 +8,12 @@ class Contador{
         self::$contador++;
     }
 
-    public static function incremento2(){
-        self::$contador++;
-    }
-
     public static function decremento(){
         self::$contador--;
     }
 }
 
 Contador::incremento();
-Contador::incremento2();
+Contador::incremento();
 Contador::decremento();
 echo Contador::$contador;
