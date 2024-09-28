@@ -1,4 +1,16 @@
-<?php require("cabecalho.php");
+<?php
+
+// Crie a seguinte hierarquia para representar diferentes tipos de telefones:
+// Telefone: abstrata, representa o DDD e o número de um telefone, define um método abstrato
+// calculaCusto (da ligação, recebe como parâmetro o tempo da ligacão)
+// Fixo: derivada de Telefone, também armazena o custo por minuto, e sobrescreve calculaCusto,
+// multiplicando o tempo da ligacão pelo custo do minuto
+// Celular: abstrata, derivada de Telefone, também armazena o custo do minuto base, e o nome da
+// operadora
+// PrePago: derivada de Celular, calcula o custo da ligacão aplicando um acréscimo de 40% no custo do
+// minuto base
+// PosPago: derivada de Celular, calcula o custo da ligacão aplicando um desconto de 10% no custo do
+// minuto base
 
 abstract class Telefone {
     protected $ddd;

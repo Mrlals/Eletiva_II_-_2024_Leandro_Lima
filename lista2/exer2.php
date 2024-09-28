@@ -1,4 +1,15 @@
-<?php require("cabecalho.php");
+<?php
+
+// Analise o código da classe Funcionario
+// A partir dessa classe, desenvolva as seguintes classes:
+// Servente: classe derivada da classe Funcionario. Um servente recebe um adicional de 5% a título de
+// insalubridade
+// Motorista: classe derivada da classe Funcionario. Para cada motorista é necessário armazenar o
+// número da carteira de motorista
+// MestreDeObras: classe derivada da classe Servente. Para cada mestre de obras é necessário
+// armazenar quantos funcionarios estão sob sua supervisão. Um mestre de obras ganha um adicional
+// de 10% para cada grupo de 10 funcionários que estão sob seu comando.
+// Em todas as classes devem ser acrescentados os métodos get/set necessários.
 
 class Funcionario {
     private $nome;
@@ -36,7 +47,7 @@ class Funcionario {
         return $this->salarioBase - $inss - $ir;
     }
 
-    // Sobrescrevendo o método toString
+    // Sobrescrevendo o método toString do php
     public function __toString() {
         return get_class($this) . "\n" 
             . "Codigo: " . $this->getCodigo() . "\n"
