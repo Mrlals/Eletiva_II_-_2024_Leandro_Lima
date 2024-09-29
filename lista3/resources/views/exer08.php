@@ -3,23 +3,24 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Calcular IMC</title>
+    <title>Calcular Área do Retângulo</title>
 </head>
 <body>
-    <h1>Calcular IMC</h1>
-    <form action="{{ url('imc') }}" method="POST">
+    <h1>Calcular Área do Retângulo</h1>
+    <form action="{{ url('area-retangulo') }}" method="POST">
         @csrf
-        <label for="peso">Peso (kg):</label>
-        <input type="number" name="peso" id="peso" required><br>
+        <label for="largura">Largura:</label>
+        <input type="number" name="largura" id="largura" required><br>
 
-        <label for="altura">Altura (m):</label>
-        <input type="number" step="0.01" name="altura" id="altura" required><br>
+        <label for="altura">Altura:</label>
+        <input type="number" name="altura" id="altura" required><br>
 
-        <button type="submit">Calcular IMC</button>
+        <button type="submit">Calcular Área</button>
     </form>
 
     @if (isset($resultado))
-        <h2>IMC: {{ number_format($resultado, 2) }}</h2>
+        <h2>Área: {{ $resultado }} unidades quadradas</h2>
     @endif
 </body>
 </html>
+

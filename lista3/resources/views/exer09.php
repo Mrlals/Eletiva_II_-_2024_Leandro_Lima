@@ -3,23 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Calcular Desconto</title>
+    <title>Calcular Área do Círculo</title>
 </head>
 <body>
-    <h1>Calcular Desconto</h1>
-    <form action="{{ url('desconto') }}" method="POST">
+    <h1>Calcular Área do Círculo</h1>
+    <form action="{{ url('area-circulo') }}" method="POST">
         @csrf
-        <label for="valor">Valor original:</label>
-        <input type="number" name="valor" id="valor" required><br>
+        <label for="raio">Raio:</label>
+        <input type="number" name="raio" id="raio" required><br>
 
-        <label for="percentual">Percentual de desconto (%):</label>
-        <input type="number" name="percentual" id="percentual" required><br>
-
-        <button type="submit">Calcular Desconto</button>
+        <button type="submit">Calcular Área</button>
     </form>
 
     @if (isset($resultado))
-        <h2>Valor final: {{ $resultado }}</h2>
+        <h2>Área: {{ $resultado }} unidades quadradas</h2>
     @endif
 </body>
 </html>
+

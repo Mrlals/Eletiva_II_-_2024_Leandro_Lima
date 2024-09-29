@@ -72,7 +72,7 @@ class Lista3Controller extends Controller
         $celsius = ($request->fahrenheit - 32) * 5/9;
         return view('lista3.fahrenheit_to_celsius', ['resultado' => $celsius]);
     }
-
+    
     public function areaRetanguloForm() {
         return view('lista3.area_retangulo');
     }
