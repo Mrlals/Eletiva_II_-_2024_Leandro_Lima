@@ -6,188 +6,319 @@ use Illuminate\Http\Request;
 
 class Lista3Controller extends Controller
 {
-    public function somaForm() {
-        return view('lista3.soma');
+    public function exibirSoma()
+    {
+        return view('exer01');
     }
 
-    public function somar(Request $request) {
-        $resultado = $request->num1 + $request->num2;
-        return view('lista3.soma', ['resultado' => $resultado]);
+    public function calcularSoma(Request $request)
+    {
+        $request->validate([
+            'numero1' => 'required|numeric',
+            'numero2' => 'required|numeric',
+        ]);
+
+        $resultado = $request->input('numero1') + $request->input('numero2');
+        return view('exer01', compact('resultado'));
     }
 
-    public function subtracaoForm() {
-        return view('lista3.subtracao');
+    public function exibirSubtracao()
+    {
+        return view('exer02');
     }
 
-    public function subtrair(Request $request) {
-        $resultado = $request->num1 - $request->num2;
-        return view('lista3.subtracao', ['resultado' => $resultado]);
+    public function calcularSubtracao(Request $request)
+    {
+        $request->validate([
+            'numero1' => 'required|numeric',
+            'numero2' => 'required|numeric',
+        ]);
+
+        $resultado = $request->input('numero1') - $request->input('numero2');
+        return view('exer02', compact('resultado'));
     }
 
-    public function multiplicacaoForm() {
-        return view('lista3.multiplicacao');
+    public function exibirMultiplicacao()
+    {
+        return view('exer03');
     }
 
-    public function multiplicar(Request $request) {
-        $resultado = $request->num1 * $request->num2;
-        return view('lista3.multiplicacao', ['resultado' => $resultado]);
+    public function calcularMultiplicacao(Request $request)
+    {
+        $request->validate([
+            'numero1' => 'required|numeric',
+            'numero2' => 'required|numeric',
+        ]);
+
+        $resultado = $request->input('numero1') * $request->input('numero2');
+        return view('exer03', compact('resultado'));
     }
 
-    public function divisaoForm() {
-        return view('lista3.divisao');
+    public function exibirDivisao()
+    {
+        return view('exer04');
     }
 
-    public function dividir(Request $request) {
-        if ($request->num2 != 0) {
-            $resultado = $request->num1 / $request->num2;
-        } else {
-            $resultado = 'Erro: divisão por zero';
-        }
-        return view('lista3.divisao', ['resultado' => $resultado]);
+    public function calcularDivisao(Request $request)
+    {
+        $request->validate([
+            'numero1' => 'required|numeric',
+            'numero2' => 'required|numeric|min:1', // evitar divisão por zero
+        ]);
+
+        $resultado = $request->input('numero1') / $request->input('numero2');
+        return view('exer04', compact('resultado'));
     }
 
-    public function mediaForm() {
-        return view('lista3.media');
+    public function exibirMedia()
+    {
+        return view('exer05');
     }
 
-    public function calcularMedia(Request $request) {
-        $media = ($request->nota1 + $request->nota2 + $request->nota3) / 3;
-        return view('lista3.media', ['resultado' => $media]);
+    public function calcularMedia(Request $request)
+    {
+        $request->validate([
+            'nota1' => 'required|numeric',
+            'nota2' => 'required|numeric',
+            'nota3' => 'required|numeric',
+        ]);
+
+        $resultado = ($request->input('nota1') + $request->input('nota2') + $request->input('nota3')) / 3;
+        return view('exer05', compact('resultado'));
     }
 
-    public function celsiusToFahrenheitForm() {
-        return view('lista3.celsius_to_fahrenheit');
+    public function exibirCelsiusFahrenheit()
+    {
+        return view('exer06');
     }
 
-    public function converterCelsiusParaFahrenheit(Request $request) {
-        $fahrenheit = ($request->celsius * 9/5) + 32;
-        return view('lista3.celsius_to_fahrenheit', ['resultado' => $fahrenheit]);
+    public function calcularCelsiusFahrenheit(Request $request)
+    {
+        $request->validate([
+            'celsius' => 'required|numeric',
+        ]);
+
+        $resultado = ($request->input('celsius') * 9/5) + 32;
+        return view('exer06', compact('resultado'));
     }
 
-    public function fahrenheitToCelsiusForm() {
-        return view('lista3.fahrenheit_to_celsius');
+    public function exibirFahrenheitCelsius()
+    {
+        return view('exer07');
     }
 
-    public function converterFahrenheitParaCelsius(Request $request) {
-        $celsius = ($request->fahrenheit - 32) * 5/9;
-        return view('lista3.fahrenheit_to_celsius', ['resultado' => $celsius]);
-    }
-    
-    public function areaRetanguloForm() {
-        return view('lista3.area_retangulo');
+    public function calcularFahrenheitCelsius(Request $request)
+    {
+        $request->validate([
+            'fahrenheit' => 'required|numeric',
+        ]);
+
+        $resultado = ($request->input('fahrenheit') - 32) * 5/9;
+        return view('exer07', compact('resultado'));
     }
 
-    public function calcularAreaRetangulo(Request $request) {
-        $area = $request->largura * $request->altura;
-        return view('lista3.area_retangulo', ['resultado' => $area]);
+    public function exibirAreaRetangulo()
+    {
+        return view('exer08');
     }
 
-    public function areaCirculoForm() {
-        return view('lista3.area_circulo');
+    public function calcularAreaRetangulo(Request $request)
+    {
+        $request->validate([
+            'base' => 'required|numeric',
+            'altura' => 'required|numeric',
+        ]);
+
+        $resultado = $request->input('base') * $request->input('altura');
+        return view('exer08', compact('resultado'));
     }
 
-    public function calcularAreaCirculo(Request $request) {
-        $area = pi() * pow($request->raio, 2);
-        return view('lista3.area_circulo', ['resultado' => $area]);
+    public function exibirAreaCirculo()
+    {
+        return view('exer09');
     }
 
-    public function perimetroRetanguloForm() {
-        return view('lista3.perimetro_retangulo');
+    public function calcularAreaCirculo(Request $request)
+    {
+        $request->validate([
+            'raio' => 'required|numeric',
+        ]);
+
+        $resultado = pi() * pow($request->input('raio'), 2);
+        return view('exer09', compact('resultado'));
     }
 
-    public function calcularPerimetroRetangulo(Request $request) {
-        $perimetro = 2 * ($request->largura + $request->altura);
-        return view('lista3.perimetro_retangulo', ['resultado' => $perimetro]);
+    public function exibirPerimetroRetangulo()
+    {
+        return view('exer10');
     }
 
-    public function perimetroCirculoForm() {
-        return view('lista3.perimetro_circulo');
+    public function calcularPerimetroRetangulo(Request $request)
+    {
+        $request->validate([
+            'base' => 'required|numeric',
+            'altura' => 'required|numeric',
+        ]);
+
+        $resultado = 2 * ($request->input('base') + $request->input('altura'));
+        return view('exer10', compact('resultado'));
     }
 
-    public function calcularPerimetroCirculo(Request $request) {
-        $perimetro = 2 * pi() * $request->raio;
-        return view('lista3.perimetro_circulo', ['resultado' => $perimetro]);
+    public function exibirPerimetroCirculo()
+    {
+        return view('exer11');
     }
 
-    public function potenciaForm() {
-        return view('lista3.potencia');
+    public function calcularPerimetroCirculo(Request $request)
+    {
+        $request->validate([
+            'raio' => 'required|numeric',
+        ]);
+
+        $resultado = 2 * pi() * $request->input('raio');
+        return view('exer11', compact('resultado'));
     }
 
-    public function calcularPotencia(Request $request) {
-        $resultado = pow($request->base, $request->expoente);
-        return view('lista3.potencia', ['resultado' => $resultado]);
+    public function exibirPotencia()
+    {
+        return view('exer12');
     }
 
-    public function metrosParaCentimetrosForm() {
-        return view('lista3.metros_para_centimetros');
+    public function calcularPotencia(Request $request)
+    {
+        $request->validate([
+            'base' => 'required|numeric',
+            'exponente' => 'required|numeric',
+        ]);
+
+        $resultado = pow($request->input('base'), $request->input('exponente'));
+        return view('exer12', compact('resultado'));
     }
 
-    public function converterMetrosParaCentimetros(Request $request) {
-        $centimetros = $request->metros * 100;
-        return view('lista3.metros_para_centimetros', ['resultado' => $centimetros]);
+    public function exibirMetrosCentimetros()
+    {
+        return view('exer13');
     }
 
-    public function quilometrosParaMilhasForm() {
-        return view('lista3.quilometros_para_milhas');
+    public function calcularMetrosCentimetros(Request $request)
+    {
+        $request->validate([
+            'metros' => 'required|numeric',
+        ]);
+
+        $resultado = $request->input('metros') * 100;
+        return view('exer13', compact('resultado'));
     }
 
-    public function converterQuilometrosParaMilhas(Request $request) {
-        $milhas = $request->quilometros * 0.621371;
-        return view('lista3.quilometros_para_milhas', ['resultado' => $milhas]);
+    public function exibirQuilometrosMilhas()
+    {
+        return view('exer14');
     }
 
-    public function imcForm() {
-        return view('lista3.imc');
+    public function calcularQuilometrosMilhas(Request $request)
+    {
+        $request->validate([
+            'quilometros' => 'required|numeric',
+        ]);
+
+        $resultado = $request->input('quilometros') * 0.621371;
+        return view('exer14', compact('resultado'));
     }
 
-    public function calcularIMC(Request $request) {
-        $imc = $request->peso / pow($request->altura, 2);
-        return view('lista3.imc', ['resultado' => $imc]);
+    public function exibirIMC()
+    {
+        return view('exer15');
     }
 
-    public function descontoForm() {
-        return view('lista3.desconto');
+    public function calcularIMC(Request $request)
+    {
+        $request->validate([
+            'peso' => 'required|numeric',
+            'altura' => 'required|numeric|min:0.01',
+        ]);
+
+        $resultado = $request->input('peso') / pow($request->input('altura'), 2);
+        return view('exer15', compact('resultado'));
     }
 
-    public function calcularDesconto(Request $request) {
-        $valorDesconto = $request->valor * ($request->percentual / 100);
-        $valorFinal = $request->valor - $valorDesconto;
-        return view('lista3.desconto', ['resultado' => $valorFinal]);
+    public function exibirDesconto()
+    {
+        return view('exer16');
     }
 
-    public function jurosSimplesForm() {
-        return view('lista3.juros_simples');
+    public function calcularDesconto(Request $request)
+    {
+        $request->validate([
+            'preco' => 'required|numeric',
+            'desconto' => 'required|numeric|min:0|max:100',
+        ]);
+
+        $resultado = $request->input('preco') * (1 - $request->input('desconto') / 100);
+        return view('exer16', compact('resultado'));
     }
 
-    public function calcularJurosSimples(Request $request) {
-        $juros = ($request->capital * $request->taxa * $request->tempo) / 100;
-        return view('lista3.juros_simples', ['resultado' => $juros]);
+    public function exibirJurosSimples()
+    {
+        return view('exer17');
     }
 
-    public function jurosCompostosForm() {
-        return view('lista3.juros_compostos');
+    public function calcularJurosSimples(Request $request)
+    {
+        $request->validate([
+            'capital' => 'required|numeric',
+            'taxa' => 'required|numeric',
+            'tempo' => 'required|numeric',
+        ]);
+
+        $resultado = $request->input('capital') * (1 + ($request->input('taxa') / 100) * $request->input('tempo'));
+        return view('exer17', compact('resultado'));
     }
 
-    public function calcularJurosCompostos(Request $request) {
-        $montante = $request->capital * pow((1 + $request->taxa / 100), $request->tempo);
-        return view('lista3.juros_compostos', ['resultado' => $montante]);
+    public function exibirJurosCompostos()
+    {
+        return view('exer18');
     }
 
-    public function tempoForm() {
-        return view('lista3.tempo');
+    public function calcularJurosCompostos(Request $request)
+    {
+        $request->validate([
+            'capital' => 'required|numeric',
+            'taxa' => 'required|numeric',
+            'tempo' => 'required|numeric',
+        ]);
+
+        $resultado = $request->input('capital') * pow((1 + $request->input('taxa') / 100), $request->input('tempo'));
+        return view('exer18', compact('resultado'));
     }
 
-    public function converterTempo(Request $request) {
-        $horas = $request->minutos / 60;
-        return view('lista3.tempo', ['resultado' => $horas]);
+    public function exibirConversaoDias()
+    {
+        return view('exer19');
     }
 
-    public function velocidadeMediaForm() {
-        return view('lista3.velocidade_media');
+    public function calcularConversaoDias(Request $request)
+    {
+        $request->validate([
+            'dias' => 'required|numeric',
+        ]);
+
+        $resultado = $request->input('dias') * 24;
+        return view('exer19', compact('resultado'));
     }
 
-    public function calcularVelocidadeMedia(Request $request) {
-        $velocidade = $request->distancia / $request->tempo;
-        return view('lista3.velocidade_media', ['resultado' => $velocidade]);
+    public function exibirVelocidadeMedia()
+    {
+        return view('exer20');
+    }
+
+    public function calcularVelocidadeMedia(Request $request)
+    {
+        $request->validate([
+            'distancia' => 'required|numeric',
+            'tempo' => 'required|numeric|min:0.01', 
+        ]);
+
+        $resultado = $request->input('distancia') / $request->input('tempo');
+        return view('exer20', compact('resultado'));
     }
 }

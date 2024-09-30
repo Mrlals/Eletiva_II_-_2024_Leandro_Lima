@@ -2,7 +2,7 @@
 
     <h5>Nova Categoria</h5>
 
-    <form action="/categoria/create" method="POST">
+    <form action="/categoria" method="POST">
         @CSRF
         <div class="row">
             <div class="col">
