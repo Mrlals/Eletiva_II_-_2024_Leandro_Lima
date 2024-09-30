@@ -9,11 +9,11 @@
     <h1>Calcular Desconto</h1>
     <form action="{{ url('desconto') }}" method="POST">
         @csrf
-        <label for="valor">Valor original:</label>
-        <input type="number" name="valor" id="valor" required><br>
+        <label for="preco">Valor original:</label>
+        <input type="number" name="preco" id="preco" required><br>
 
-        <label for="percentual">Percentual de desconto (%):</label>
-        <input type="number" name="percentual" id="percentual" required><br>
+        <label for="desconto">Percentual de desconto (%):</label>
+        <input type="number" name="desconto" id="desconto" required><br>
 
         <button type="submit">Calcular Desconto</button>
     </form>

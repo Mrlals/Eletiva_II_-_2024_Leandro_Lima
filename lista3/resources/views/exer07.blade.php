@@ -7,7 +7,7 @@
 </head>
 <body>
     <h1>Converter Fahrenheit para Celsius</h1>
-    <form action="{{ url('fahrenheit-to-celsius') }}" method="POST">
+    <form action="{{ url('fahrenheit-celsius') }}" method="POST">
         @csrf
         <label for="fahrenheit">Fahrenheit:</label>
         <input type="number" name="fahrenheit" id="fahrenheit" required><br>

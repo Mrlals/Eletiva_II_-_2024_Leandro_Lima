@@ -7,7 +7,7 @@
 </head>
 <body>
     <h1>Converter Quilômetros para Milhas</h1>
-    <form action="{{ url('quilometros-para-milhas') }}" method="POST">
+    <form action="{{ url('quilometros-milhas') }}" method="POST">
         @csrf
         <label for="quilometros">Quilômetros:</label>
         <input type="number" name="quilometros" id="quilometros" required><br>

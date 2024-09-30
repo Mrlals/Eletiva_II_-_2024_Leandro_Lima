@@ -16,7 +16,7 @@
     </form>
 
     @if (isset($resultado))
-        <h2>Perímetro: {{ $resultado }} unidades</h2>
+        <h2>Perímetro: {{ $resultado }}</h2>
     @endif
 </body>
 </html>

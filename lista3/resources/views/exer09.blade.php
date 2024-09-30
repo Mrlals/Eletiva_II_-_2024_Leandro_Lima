@@ -16,7 +16,7 @@
     </form>
 
     @if (isset($resultado))
-        <h2>Área: {{ $resultado }} unidades quadradas</h2>
+        <h2>Área: {{ $resultado }}</h2>
     @endif
 </body>
 </html>

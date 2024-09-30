@@ -14,11 +14,11 @@ class Lista3Controller extends Controller
     public function calcularSoma(Request $request)
     {
         $request->validate([
-            'numero1' => 'required|numeric',
-            'numero2' => 'required|numeric',
+            'num1' => 'required|numeric',
+            'num2' => 'required|numeric',
         ]);
 
-        $resultado = $request->input('numero1') + $request->input('numero2');
+        $resultado = $request->input('num1') + $request->input('num2');
         return view('exer01', compact('resultado'));
     }
 
@@ -30,11 +30,11 @@ class Lista3Controller extends Controller
     public function calcularSubtracao(Request $request)
     {
         $request->validate([
-            'numero1' => 'required|numeric',
-            'numero2' => 'required|numeric',
+            'num1' => 'required|numeric',
+            'num2' => 'required|numeric',
         ]);
 
-        $resultado = $request->input('numero1') - $request->input('numero2');
+        $resultado = $request->input('num1') - $request->input('num2');
         return view('exer02', compact('resultado'));
     }
 
@@ -46,11 +46,11 @@ class Lista3Controller extends Controller
     public function calcularMultiplicacao(Request $request)
     {
         $request->validate([
-            'numero1' => 'required|numeric',
-            'numero2' => 'required|numeric',
+            'num1' => 'required|numeric',
+            'num2' => 'required|numeric',
         ]);
 
-        $resultado = $request->input('numero1') * $request->input('numero2');
+        $resultado = $request->input('num1') * $request->input('num2');
         return view('exer03', compact('resultado'));
     }
 
@@ -62,11 +62,11 @@ class Lista3Controller extends Controller
     public function calcularDivisao(Request $request)
     {
         $request->validate([
-            'numero1' => 'required|numeric',
-            'numero2' => 'required|numeric|min:1', // evitar divisão por zero
+            'num1' => 'required|numeric',
+            'num2' => 'required|numeric|min:1',
         ]);
 
-        $resultado = $request->input('numero1') / $request->input('numero2');
+        $resultado = $request->input('num1') / $request->input('num2');
         return view('exer04', compact('resultado'));
     }
 
@@ -188,10 +188,10 @@ class Lista3Controller extends Controller
     {
         $request->validate([
             'base' => 'required|numeric',
-            'exponente' => 'required|numeric',
+            'expoente' => 'required|numeric',
         ]);
 
-        $resultado = pow($request->input('base'), $request->input('exponente'));
+        $resultado = pow($request->input('base'), $request->input('expoente'));
         return view('exer12', compact('resultado'));
     }
 
@@ -295,16 +295,23 @@ class Lista3Controller extends Controller
     {
         return view('exer19');
     }
-
+    
     public function calcularConversaoDias(Request $request)
     {
         $request->validate([
-            'dias' => 'required|numeric',
+            'dias' => 'required|numeric|min:0',
         ]);
 
-        $resultado = $request->input('dias') * 24;
-        return view('exer19', compact('resultado'));
+        $dias = $request->input('dias');
+    
+        $horas = $dias * 24;
+        $minutos = $horas * 60;
+        $segundos = $minutos * 60;
+    
+        return view('exer19', compact('dias', 'horas', 'minutos', 'segundos'));
     }
+    
+    
 
     public function exibirVelocidadeMedia()
     {

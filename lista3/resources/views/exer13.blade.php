@@ -7,7 +7,7 @@
 </head>
 <body>
     <h1>Converter Metros para Centímetros</h1>
-    <form action="{{ url('metros-para-centimetros') }}" method="POST">
+    <form action="{{ url('metros-centimetros') }}" method="POST">
         @csrf
         <label for="metros">Metros:</label>
         <input type="number" name="metros" id="metros" required><br>

@@ -9,8 +9,8 @@
     <h1>Calcular Perímetro do Retângulo</h1>
     <form action="{{ url('perimetro-retangulo') }}" method="POST">
         @csrf
-        <label for="largura">Largura:</label>
-        <input type="number" name="largura" id="largura" required><br>
+        <label for="base">Largura:</label>
+        <input type="number" name="base" id="base" required><br>
 
         <label for="altura">Altura:</label>
         <input type="number" name="altura" id="altura" required><br>
@@ -19,7 +19,7 @@
     </form>
 
     @if (isset($resultado))
-        <h2>Perímetro: {{ $resultado }} unidades</h2>
+        <h2>Perímetro: {{ $resultado }}</h2>
     @endif
 </body>
 </html>
