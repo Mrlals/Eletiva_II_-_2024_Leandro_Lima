@@ -1,6 +1,6 @@
 <x-app-layout>
 
-    <h5 class="mt-3">Bem vindo ao sistema de controle de estoque!</h5>
+    <h5 class="mt-3">Bem vindo ao sistema de Pacotes de Viagens!</h5>
 
     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
     <script type="text/javascript">
@@ -10,16 +10,16 @@
       function drawChart() {
 
         var data = google.visualization.arrayToDataTable([
-          ['Produtos', 'Quantidade Vendida'],
-          ['Produto A',     11],
-          ['Produto B',      2],
-          ['Produto C',  2],
-          ['Produto D', 2],
-          ['Produto E',    7]
+          ['Pacotes', 'Quantidade Vendida'],
+          ['Pacote A',     11],
+          ['Pacote B',      2],
+          ['Pacote C',  2],
+          ['Pacote D', 2],
+          ['Pacote E',    7]
         ]);
 
         var options = {
-          title: 'Quantidade de Produtos vendidos'
+          title: 'Quantidade de Pacotes Vendidos'
         };
 
         var chart = new google.visualization.PieChart(document.getElementById('piechart'));

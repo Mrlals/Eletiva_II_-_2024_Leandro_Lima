@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sistema de Controle de Estoque</title>
+    <title>Pacotes de Viagens Tabajara</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
     <style>
         html, body {
@@ -35,17 +35,20 @@
 <!-- Navbar -->
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <div class="container-fluid">
-        <a class="navbar-brand" href="/dashboard">Sistema de Controle de Estoque</a>
+        <a class="navbar-brand" href="/dashboard">Pacotes de Viajens Tabajara</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav ms-auto">
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Produtos</a>
+                    <a class="nav-link" href="/pacotes">Pacotes</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/categoria">Categorias</a>
+                    <a class="nav-link" href="/clientes">Clientes</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/destinos">Destinos</a>
                 </li>
             </ul>
             <ul class="navbar-nav ms-auto">
@@ -75,7 +78,7 @@
 
 <footer>
     <div class="container">
-        <p>&copy; 2024 Sistema de Controle de Estoque. Todos os direitos reservados.</p>
+        <p>&copy; 2024 Pacotes de Viagens Tabajara.</p>
     </div>
 </footer>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
