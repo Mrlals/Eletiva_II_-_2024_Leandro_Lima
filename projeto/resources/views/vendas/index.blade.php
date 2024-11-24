@@ -1,8 +1,8 @@
 <x-app-layout>
-    <h1>Listagem de Clientes</h1>
+    <h1>Listagem de Vendas</h1>
     
-    <form action="{{ route('clientes.create') }}" method="GET">
-        <button type="submit" class="btn btn-success">Adicionar Novo Cliente</button>
+    <form action="{{ route('vendas.create') }}" method="GET">
+        <button type="submit" class="btn btn-success">Registrar Nova Venda</button>
     </form>
 
     @if (session('success'))
@@ -13,29 +13,31 @@
         <thead>
             <tr>
                 <th>ID</th>
-                <th>Nome</th>
-                <th>Email</th>
+                <th>Cliente</th>
+                <th>Pacote</th>
+                <th>Data de Contratação</th>
                 <th>Ações</th>
             </tr>
         </thead>
         <tbody>
-            @foreach($clientes as $cliente)
+            @foreach($vendas as $venda)
                 <tr>
-                    <td>{{ $cliente->id }}</td>
-                    <td>{{ $cliente->nome }}</td>
-                    <td>{{ $cliente->email }}</td>
+                    <td>{{ $venda->id }}</td>
+                    <td>{{ $venda->cliente->nome }}</td>
+                    <td>{{ $venda->pacote->destino->nome }}</td>
+                    <td>{{ $venda->data_contratacao }}</td>
                     <td>
                         <div class="btn-group" role="group" aria-label="Ações">
-                            <form action="{{ route('clientes.edit', $cliente->id) }}" method="GET" class="me-2">
+                            <form action="{{ route('vendas.edit', $venda->id) }}" method="GET" class="me-2">
                                 <button type="submit" class="btn btn-warning">Editar</button>
                             </form>
 
-                            <form action="{{ route('clientes.show', $cliente->id) }}" method="GET" class="me-2">
+                            <form action="{{ route('vendas.show', $venda->id) }}" method="GET" class="me-2">
                                 <button type="submit" class="btn btn-primary">Ver</button>
                             </form>
 
-                            <form action="{{ route('clientes.destroy', $cliente->id) }}" method="POST" 
-                                  onsubmit="return confirm('Tem certeza que deseja excluir este cliente?');" class="me-2">
+                            <form action="{{ route('vendas.destroy', $venda->id) }}" method="POST" 
+                                  onsubmit="return confirm('Tem certeza que deseja excluir esta venda?');" class="me-2">
                                 @csrf
                                 @method('DELETE')
                                 <button type="submit" class="btn btn-danger">Excluir</button>

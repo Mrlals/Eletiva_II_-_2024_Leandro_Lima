@@ -1,23 +1,25 @@
-<!DOCTYPE html>
-<html lang="pt-br">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Detalhes do Cliente</title>
-</head>
-<body>
+<x-app-layout>
     <h1>Detalhes do Cliente</h1>
-    <p>Nome: {{ $cliente->nome }}</p>
-    <p>Email: {{ $cliente->email }}</p>
-    <p>Telefone: {{ $cliente->telefone }}</p>
-    <p>CPF: {{ $cliente->cpf }}</p>
-    <p>Data de Nascimento: {{ $cliente->data_nascimento }}</p>
+    <p><strong>Nome:</strong> {{ $cliente->nome }}</p>
+    <p><strong>Email:</strong> {{ $cliente->email }}</p>
+    <p><strong>Telefone:</strong> {{ $cliente->telefone }}</p>
+    <p><strong>CPF:</strong> {{ $cliente->cpf }}</p>
+    <p><strong>Data de Nascimento:</strong> {{ $cliente->data_nascimento }}</p>
 
-    <a href="{{ route('clientes.edit', $cliente->id) }}">Editar</a>
-    <form action="{{ route('clientes.destroy', $cliente->id) }}" method="POST">
-        @csrf
-        @method('DELETE')
-        <button type="submit">Remover</button>
-    </form>
-</body>
-</html>
+    <div class="btn-group" role="group" aria-label="Ações">
+        <form action="{{ route('clientes.edit', $cliente->id) }}" method="GET" class="me-2">
+            <button type="submit" class="btn btn-warning">Alterar</button>
+        </form>
+
+        <form action="{{ route('clientes.destroy', $cliente->id) }}" method="POST" class="me-2"
+              onsubmit="return confirm('Tem certeza que deseja excluir este cliente?');">
+            @csrf
+            @method('DELETE')
+            <button type="submit" class="btn btn-danger">Excluir</button>
+        </form>
+
+        <form action="{{ route('clientes.index') }}" method="GET" class="me-2">
+            <button type="submit" class="btn btn-secondary">Voltar para a Listagem</button>
+        </form>
+    </div>
+</x-app-layout>

@@ -50,6 +50,9 @@
                 <li class="nav-item">
                     <a class="nav-link" href="/destinos">Destinos</a>
                 </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/vendas">Vendas</a>
+                </li>
             </ul>
             <ul class="navbar-nav ms-auto">
                 <li class="nav-item dropdown">
