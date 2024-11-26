@@ -7,12 +7,13 @@ use App\Http\Controllers\ClienteController;
 use App\Http\Controllers\DestinoController;
 use App\Http\Controllers\PacoteController;
 use App\Http\Controllers\VendaController;
+use App\Http\Controllers\DashboardController;
 
 Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/dashboard', function () {
+Route::get('/dashboard', [DashboardController::class, 'gerarGrafico'] , function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
